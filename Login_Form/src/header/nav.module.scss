@@ -1,8 +1,8 @@
 .menu {
     max-height: 300px;
-    overflow-y: auto; 
+    overflow-y: auto;
     scrollbar-width: thin;
-    scrollbar-color: #888 #f1f1f1; 
+    scrollbar-color: #888 #f1f1f1;
 }
 
 .thumbnailLink :hover {
@@ -13,7 +13,96 @@
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
 }
+
+
+
+#primaryNav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.iconHover {
+    font-size: 24px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+/* Các icon và container của chúng */
+.iconContainer {
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  overflow: hidden; /* Ẩn phần vượt quá khi chưa đủ không gian */
+  cursor: pointer;  /* Đặt chiều rộng ban đầu chỉ hiển thị icon (có thể điều chỉnh theo kích thước icon của bạn) */
+  width: 40px;
+  transition: width 0.3s ease, background-color 0.3s ease, transform 0.3s ease; /* Loại bỏ padding ngang để tránh làm tăng kích thước ban đầu */
+  padding: 10px 0;
+  margin: 0 10px;
+  white-space: nowrap; /* Ngăn text xuống dòng */
+}
+
+.iconText {
+    color: #fff;
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    font-size: 17px;
+  }
+
+.iconContainer i {
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+    flex-shrink: 0;       /* Đảm bảo icon không bị co lại */
+  }
+
+  .iconContainer:hover {
+    width: 200px; 
+    background-color: #007bff;
+    transform: translateY(-5px);
+  }
+
+.iconContainer:hover .iconHover {
+    transform: translateY(-5px);
+}
+
+.iconContainer:hover .iconText {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Hiển thị luôn chữ trên mobile */
+@media (max-width: 991px) {
+    .iconContainer {
+        width: auto !important; /* Đảm bảo container đủ rộng để chứa cả icon và text */
+        background-color: #007bff; /* Thay đổi màu nền trên mobile */
+    }
+
+    .iconContainer .iconText {
+        opacity: 1 !important; /* Hiển thị chữ ngay trên mobile */
+        visibility: visible !important; /* Đảm bảo chữ luôn hiển thị */
+    }
+
+    /* Loại bỏ hiệu ứng hover trên mobile */
+    .iconContainer:hover {
+        background-color: #007bff;
+        transform: translateY(0); /* Không có hiệu ứng di chuyển trên mobile */
+    }
+
+    /* Ẩn dropdown menu để luôn hiển thị */
+    .dropdown-menu {
+        display: block !important; /* Đảm bảo dropdown luôn mở trên mobile */
+    }
+}
+
