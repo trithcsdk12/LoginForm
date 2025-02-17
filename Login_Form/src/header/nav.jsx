@@ -131,7 +131,6 @@ function Nav({ user, setUser }) {
                     </div>
                 </div>
             </nav>
-
         </>
     )
 }
