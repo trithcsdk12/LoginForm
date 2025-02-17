@@ -35,7 +35,6 @@ function App() {
     });
   };
 
-  
   return (
     <>
       <Nav user={user} setUser={setUser} />

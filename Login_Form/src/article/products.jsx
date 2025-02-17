@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import styles from './product.module.scss'
 import { useNavigate } from "react-router-dom";
 
-
 function FakeProduct() {
 
     const [products, setProducts] = useState([])

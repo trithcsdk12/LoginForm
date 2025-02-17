@@ -20,13 +20,11 @@ function SignUp() {
             return;
         } else {
             const existingUsers = JSON.parse(localStorage.getItem("userRegister")) || [];
-
             if (existingUsers.find(user => user.email === formData.email)) {
                 alert("Email này đã được sử dụng!");
                 return;
             }
 
-            // Thêm tài khoản mới vào mảng
             existingUsers.push(formData);
             alert("Đăng ký thành công, trở về trang đăng nhập!");
             localStorage.setItem("userRegister", JSON.stringify(existingUsers));

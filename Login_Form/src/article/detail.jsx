@@ -15,7 +15,6 @@ function Detail() {
     const handleAddToCart = () => {
         let cart = getCart();
         let existingProduct = cart.find(item => item.id === product.id);
-
         if (existingProduct) {
             existingProduct.quantity += 1;
             if (existingProduct.quantity > product.stock) {

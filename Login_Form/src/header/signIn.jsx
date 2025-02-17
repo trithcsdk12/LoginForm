@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { useNavigate } from 'react-router-dom'
 
-
 const userList = [
     { name: "Nguyễn Văn A", email: "anv@gmail.com", password: "123" },
     { name: "Trần Thị B", email: "btt@gmail.com", password: "234" },
@@ -25,14 +24,12 @@ const userList = [
 const userStorage = JSON.parse(localStorage.getItem("userRegister")) || [];
 const updatedUsers = Array.isArray(userStorage) ? userStorage : [userStorage];
 
-
 function SignIn({ setUser }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const handleValidate = (event) => {
         event.preventDefault();
-
         const user =
             userList.find(user => user.email === email && user.password === password)
             ||

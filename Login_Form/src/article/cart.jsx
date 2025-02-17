@@ -26,9 +26,7 @@ function Cart() {
     const handleUpQuantity = (index) => {
         let updatedCart = [...cart];
         let newQuantity = updatedCart[index].quantity + 1;
-
         updatedCart[index].quantity = checkStock(updatedCart[index], newQuantity);
-
         setCart(updatedCart);
         saveCart(updatedCart);
     };
