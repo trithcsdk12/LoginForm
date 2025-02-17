@@ -22,7 +22,7 @@ function FakeProduct() {
 
     return (
         <>
-            <div className='container-fluid row d-flex justify-content-center'>
+            <div className='container-fluid row d-flex'>
                 {
                     products.map(product => (
                         <div key={product.id} className='col-md-3 mb-3'>
