@@ -1,0 +1,14 @@
+
+.productLink {
+    text-decoration: none;
+    color: inherit;
+  }
+
+.productThumbnail:hover{
+    transform: scale(1.2);
+  }
+
+  .productTitle:hover{
+    color: red;
+    text-decoration: underline;
+  }

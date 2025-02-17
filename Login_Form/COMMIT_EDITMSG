@@ -1,0 +1,37 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+#
+# Initial commit
+#
+# Changes to be committed:
+#	new file:   Login_Form/.gitignore
+#	new file:   Login_Form/README.md
+#	new file:   Login_Form/eslint.config.js
+#	new file:   Login_Form/index.html
+#	new file:   Login_Form/package-lock.json
+#	new file:   Login_Form/package.json
+#	new file:   Login_Form/public/vite.svg
+#	new file:   Login_Form/server.js
+#	new file:   Login_Form/src/App.css
+#	new file:   Login_Form/src/App.jsx
+#	new file:   Login_Form/src/article/cart.jsx
+#	new file:   Login_Form/src/article/detail.jsx
+#	new file:   Login_Form/src/article/home.jsx
+#	new file:   Login_Form/src/article/product.module.scss
+#	new file:   Login_Form/src/article/products.jsx
+#	new file:   Login_Form/src/assets/logo_nav.png
+#	new file:   Login_Form/src/assets/logo_nav.webp
+#	new file:   Login_Form/src/assets/react.svg
+#	new file:   Login_Form/src/header/nav.jsx
+#	new file:   Login_Form/src/header/signIn.jsx
+#	new file:   Login_Form/src/header/signUp.jsx
+#	new file:   Login_Form/src/index.css
+#	new file:   Login_Form/src/main.jsx
+#	new file:   Login_Form/vite.config.js
+#
+# Untracked files:
+#	.gitignore
+#
