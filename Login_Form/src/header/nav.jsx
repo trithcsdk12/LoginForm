@@ -4,6 +4,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import styles from './nav.module.scss'
+import { useRef } from 'react';
 
 const backgroundColorList = [
     {
@@ -40,6 +41,18 @@ function ChangeBackgroundColor({ color, setColor, setTxColor, txColor }) {
 
 function Nav({ user, setUser }) {
 
+    const audioRef = useRef(null);
+    const handlePlayMusic = () => {
+        audioRef.current.play();
+    };
+
+    const handlePauseMusic = () => {
+        const audio = audioRef.current;
+        if (audio) {
+            audio.pause();
+        }
+    };
+
     const [users, setUsers] = useState([])
     const [color, setColor] = useState('Gray');
     const [txColor, setTxColor] = useState('Black');
@@ -59,6 +72,9 @@ function Nav({ user, setUser }) {
 
     return (
         <>
+            <audio ref={audioRef} id="backgroundMusic" loop>
+                <source src="src/assets/Fly Me to the Moon - The Macarons Project.mp3" type="audio/mpeg" />
+            </audio>
             <nav className="navbar navbar-expand-lg navbar-light py-3 mx-auto mb-5 sticky-top" id={`${styles.primaryNav}`} style={{ backgroundColor: color }}>
                 <div className="container-fluid d-flex justify-content-between">
                     <Link to="/" className={`${styles.thumbnailLink}`}>
@@ -131,6 +147,14 @@ function Nav({ user, setUser }) {
                                     <i className="fa-solid fa-cart-shopping"></i>
                                     <span className={`${styles.iconText}`}>Giỏ hàng</span>
                                 </Link>
+                            </li>
+                            <li className={`${styles.iconHover} ${styles.iconContainer} nav-item mx-3`}>
+                                    <span onClick={handlePlayMusic}> <i className="fa-solid fa-music"></i></span>
+                                    <span className={`${styles.iconText}`} onClick={handlePlayMusic}>Chơi nhạc</span>
+                            </li>
+                            <li className={`${styles.iconHover} ${styles.iconContainer} nav-item mx-3`}>
+                                    <span onClick={handlePauseMusic}><i className="fa-solid fa-pause"></i></span>
+                                    <span className={`${styles.iconText}`} onClick={handlePauseMusic}>Dừng nhạc</span>
                             </li>
                         </ul>
                         <form className="d-flex">
