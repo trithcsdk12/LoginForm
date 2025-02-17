@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import styles from './nav.module.scss'
 
 const backgroundColorList = [
     {
@@ -45,9 +46,9 @@ function Nav({ user, setUser }) {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/users')
+        fetch('https://dummyjson.com/users')
             .then(res => res.json())
-            .then(users => setUsers(users))
+            .then(data => setUsers(data.users))
     }, [])
 
     const handleLogout = () => {
@@ -60,7 +61,7 @@ function Nav({ user, setUser }) {
         <>
             <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: color }}>
                 <div className="container-fluid">
-                    <Link to="/"><img src="src/assets/logo_nav.webp" alt="" className=' mx-5' style={{ width: '100px', height: '100px' }} /></Link>
+                    <Link to="/" className={`${styles.thumbnailLink}`}><img src="src/assets/logo_nav.webp" alt="" className='mx-5' style={{ width: '100px', height: '100px' }} /></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -110,9 +111,9 @@ function Nav({ user, setUser }) {
                                     aria-expanded="false" style={{ color: txColor }}>
                                     Danh sách user
                                 </a>
-                                <ul className="dropdown-menu" aria-labelledby="userDropdown" >
+                                <ul className={` ${styles.menu} dropdown-menu`} aria-labelledby="userDropdown" >
                                     {users.map(user => (
-                                        <li key={user.id}>{user.email + ' Username: ' + user.username}<hr className="dropdown-divider" /></li>
+                                        <li key={user.id}>{user.email + ' Name: ' + user.firstName}<hr className="dropdown-divider" /></li>
                                     ))}
                                 </ul>
                             </li>
