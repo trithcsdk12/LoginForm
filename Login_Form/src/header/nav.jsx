@@ -53,15 +53,15 @@ function Nav({ user, setUser }) {
         }
     };
 
-    const [users, setUsers] = useState([])
+    const [products, setProducts] = useState([])
     const [color, setColor] = useState('Gray');
     const [txColor, setTxColor] = useState('Black');
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('https://dummyjson.com/users')
+        fetch('https://dummyjson.com/products')
             .then(res => res.json())
-            .then(data => setUsers(data.users))
+            .then(data => setProducts(data.products))
     }, [])
 
     const handleLogout = () => {
@@ -128,13 +128,17 @@ function Nav({ user, setUser }) {
                             <li className="nav-item mx-3 dropdown">
                                 <a className={`${styles.iconHover} ${styles.iconContainer} nav-link dropdown-toggle`} href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: txColor }}>
                                     <i className="fa-solid fa-list"></i>
-                                    <span className={`${styles.iconText}`}>Danh sách user</span>
+                                    <span className={`${styles.iconText}`}>Loại sản phẩm</span>
                                 </a>
-                                <ul className={` ${styles.menu} dropdown-menu`} aria-labelledby="userDropdown">
-                                    {users.map(user => (
-                                        <li key={user.id}>{user.email + ' Name: ' + user.firstName}<hr className="dropdown-divider" /></li>
+                                <ul className={`${styles.menu} dropdown-menu`} aria-labelledby="userDropdown">
+                                    {[...new Set(products.map(product => product.category))].map((category, index) => (
+                                        <li key={index}>
+                                            <span>{category.charAt(0).toUpperCase() + category.slice(1)}</span>
+                                            <hr className="dropdown-divider" />
+                                        </li>
                                     ))}
-                                </ul>
+                                </ul>   
+
                             </li>
                             <li className="nav-item mx-3" id={`${styles.iconHover}`}>
                                 <Link className={`${styles.iconHover} ${styles.iconContainer} nav-link active`} aria-current="page" to="/product" style={{ color: txColor }}>
@@ -149,12 +153,12 @@ function Nav({ user, setUser }) {
                                 </Link>
                             </li>
                             <li className={`${styles.iconHover} ${styles.iconContainer} nav-item mx-3`}>
-                                    <span onClick={handlePlayMusic}> <i className="fa-solid fa-music"></i></span>
-                                    <span className={`${styles.iconText}`} onClick={handlePlayMusic}>Chơi nhạc</span>
+                                <span onClick={handlePlayMusic}> <i className="fa-solid fa-music"></i></span>
+                                <span className={`${styles.iconText}`} onClick={handlePlayMusic}>Chơi nhạc</span>
                             </li>
                             <li className={`${styles.iconHover} ${styles.iconContainer} nav-item mx-3`}>
-                                    <span onClick={handlePauseMusic}><i className="fa-solid fa-pause"></i></span>
-                                    <span className={`${styles.iconText}`} onClick={handlePauseMusic}>Dừng nhạc</span>
+                                <span onClick={handlePauseMusic}><i className="fa-solid fa-pause"></i></span>
+                                <span className={`${styles.iconText}`} onClick={handlePauseMusic}>Dừng nhạc</span>
                             </li>
                         </ul>
                         <form className="d-flex">
