@@ -2,13 +2,16 @@
 .productLink {
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
   }
 
 .productThumbnail:hover{
     transform: scale(1.2);
+    cursor: pointer;
   }
 
   .productTitle:hover{
     color: red;
     text-decoration: underline;
+    cursor: pointer;
   }
